@@ -13,7 +13,8 @@
 <body>
     <p>FORMULÁRIO PRODUTOS</p>
 
-    <form action="insert.php" method="post">
+    <form action="" method="post">
+        <p>ID Produto: <input type="text" name="id"></input></p>
         <p>Descrição Produto: <input type="text" name="descricao"></input></p>
         <p>Valor Produto: <input type="number" name="valor"></input></p>
         <p><input type="submit" value="Enviar Dados"/></p>
