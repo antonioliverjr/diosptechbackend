@@ -1,5 +1,9 @@
 <?php
 
+require 'produtos.php';
+
+$produto = new Produto();
+
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +15,7 @@
     <title>PHP Intro</title>
 </head>
 <body>
-    <p>FORMULÁRIO PRODUTOS</p>
+    <p>CADASTRO PRODUTOS</p>
 
     <form action="" method="post">
         <p>ID Produto: <input type="text" name="id"></input></p>
@@ -21,9 +25,40 @@
     </form>
 
     <?php
-        /*foreach ($conexao->query($sql) as $key -> $value){
-            echo 'Id: '.$value['id'].'<br>Descrição: '.$value['descricao'].'<hr>';
-        }*/
+        $mensagem = '';
+        echo 'LISTAGEM DE PRODUTOS<hr>';
+        foreach ($produto->list() as $value){
+            $mensagem.= '<div>';
+            $mensagem.= '<table class="table">';
+            $mensagem.='<thead>';
+            $mensagem.='<tr>';
+            $mensagem.='<th scope="col">Id</th>';
+            $mensagem.='<th scope="col">Descrição</th>';
+            $mensagem.='<th scope="col">Valor</th>';
+            $mensagem.='<th scope="col">Data de Cadastro</th>';
+            $mensagem.='<th scope="col">Ação</th>';
+            $mensagem.='</tr>';
+            $mensagem.='</thead>';
+            $mensagem.= '<tbody>';
+            $mensagem.='<tr>';
+            $mensagem.='<th scope="col">'.$value['id'].'</th>';
+            $mensagem.='<td scope="col">'.$value['descricao'].'</td>';
+            $mensagem.='<td scope="col">'.$value['valor'].'</td>';
+            $mensagem.='<td scope="col">'.$value['data_cadastro'].'</td>';
+            $mensagem.='<td scope="col">';
+            $mensagem.='<a href="{{url("Clientes/$model_clientes->id/edit")}}">';
+            $mensagem.='<button class="btn btn-primary">Editar</button>';
+            $mensagem.='</a>';
+            $mensagem.='<a href="{{url("Clientes/$model_clientes->id")}}" class="js-del">';
+            $mensagem.='<button class="btn btn-danger">Excluir</button>';
+            $mensagem.='</a>';
+            $mensagem.='</td>';
+            $mensagem.='</tr>';
+            $mensagem.= '</tbody>';
+            $mensagem.= '</table>';
+            $mensagem.= '</div>';
+        }
+        echo $mensagem;
     ?>
 </body>
 </html>
