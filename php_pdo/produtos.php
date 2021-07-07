@@ -8,7 +8,7 @@ class Produto{
      * @var 
      */
 
-    private $conexao;
+    public $conexao;
 
     public function __construct(){
         try{

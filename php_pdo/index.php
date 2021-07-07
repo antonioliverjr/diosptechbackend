@@ -15,10 +15,10 @@ $produto = new Produto();
     <title>PHP Intro</title>
 </head>
 <body>
+    
     <p>CADASTRO PRODUTOS</p>
 
-    <form action="" method="post">
-        <p>ID Produto: <input type="text" name="id"></input></p>
+    <form action="./crud_procedural/insert.php" method="post">
         <p>Descrição Produto: <input type="text" name="descricao"></input></p>
         <p>Valor Produto: <input type="number" name="valor"></input></p>
         <p><input type="submit" value="Enviar Dados"/></p>
@@ -36,7 +36,6 @@ $produto = new Produto();
             $mensagem.='<th scope="col">Descrição</th>';
             $mensagem.='<th scope="col">Valor</th>';
             $mensagem.='<th scope="col">Data de Cadastro</th>';
-            $mensagem.='<th scope="col">Ação</th>';
             $mensagem.='</tr>';
             $mensagem.='</thead>';
             $mensagem.= '<tbody>';
@@ -46,12 +45,6 @@ $produto = new Produto();
             $mensagem.='<td scope="col">'.$value['valor'].'</td>';
             $mensagem.='<td scope="col">'.$value['data_cadastro'].'</td>';
             $mensagem.='<td scope="col">';
-            $mensagem.='<a href="{{url("Clientes/$model_clientes->id/edit")}}">';
-            $mensagem.='<button class="btn btn-primary">Editar</button>';
-            $mensagem.='</a>';
-            $mensagem.='<a href="{{url("Clientes/$model_clientes->id")}}" class="js-del">';
-            $mensagem.='<button class="btn btn-danger">Excluir</button>';
-            $mensagem.='</a>';
             $mensagem.='</td>';
             $mensagem.='</tr>';
             $mensagem.= '</tbody>';
